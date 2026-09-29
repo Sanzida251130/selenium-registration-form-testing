@@ -1,0 +1,21 @@
+TestID,TestDescription,FirstName,LastName,Email,Mobile,Gender,DOB,ExpectedResult
+TC01,All Fields Empty,,,,,,,INVALID_MANDATORY
+TC02,Missing Mandatory First Name,,Doe,john@example.com,01712345678,Male,1995-01-01,INVALID_MANDATORY
+TC03,Missing Mandatory Email,John,Doe,,01712345678,Male,1995-01-01,INVALID_MANDATORY
+TC04,Missing Mandatory Gender,John,Doe,john@example.com,01712345678,,1995-01-01,INVALID_MANDATORY
+TC05,Email Missing @ Symbol,Alex,Doe,not-an-email,01712345678,Male,1995-01-01,INVALID_EMAIL
+TC06,Email Missing Domain,Alex,Doe,alex@,01712345678,Male,1995-01-01,INVALID_EMAIL
+TC07,Email Missing Username,Alex,Doe,@example.com,01712345678,Male,1995-01-01,INVALID_EMAIL
+TC08,Email Double @ Symbol,Alex,Doe,alex@@example.com,01712345678,Male,1995-01-01,INVALID_EMAIL
+TC09,Mobile Contain Alphabets,Alex,Doe,alex@example.com,abc12345678,Male,1995-01-01,INVALID_MOBILE
+TC10,Mobile Too Short (9 Digits),Alex,Doe,alex@example.com,123456789,Male,1995-01-01,INVALID_MOBILE
+TC11,Mobile Too Long (16 Digits),Alex,Doe,alex@example.com,1234567890123456,Male,1995-01-01,INVALID_MOBILE
+TC12,Mobile Lower Boundary (10 Digits),Alex,Doe,alex@example.com,1234567890,Male,1995-01-01,VALID
+TC13,Mobile Upper Boundary (15 Digits),Alex,Doe,alex@example.com,123456789012345,Male,1995-01-01,VALID
+TC14,Mobile Special Characters,Alex,Doe,alex@example.com,017123+4567,Male,1995-01-01,INVALID_MOBILE
+TC15,Valid Without Optional Last Name,Sarah,,sarah@example.com,01812345678,Female,1998-05-20,VALID
+TC16,Valid Without Optional DOB,Michael,Scott,mscott@example.com,01912345678,Male,,VALID
+TC17,Valid Minimum Required Only,Jim,,jim@example.com,,Male,,VALID
+TC18,Clean Valid Submission Male,Bob,Smith,bob.smith@example.com,98765432101,Male,1990-12-25,VALID
+TC19,Clean Valid Submission Female,Jane,Doe,jane.doe@example.com,01711112222,Female,2000-01-01,VALID
+TC20,Valid Complex Subdomain Email,Alice,Wonder,alice@mail.co.uk,01512345678,Female,1992-08-14,VALID

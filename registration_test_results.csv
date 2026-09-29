@@ -1,0 +1,21 @@
+TestID,TestDescription,FirstName,LastName,Email,Mobile,Gender,DOB,ExpectedResult,ActualStatus,ValidationMessage,TestResult
+TC01,All Fields Empty,,,,,,,INVALID_MANDATORY,BLOCKED_MANDATORY_MISSING,Please fill out this field.,PASSED
+TC02,Missing Mandatory First Name,,Doe,john@example.com,01712345678,Male,1995-01-01,INVALID_MANDATORY,BLOCKED_MANDATORY_MISSING,Please fill out this field.,PASSED
+TC03,Missing Mandatory Email,John,Doe,,01712345678,Male,1995-01-01,INVALID_MANDATORY,BLOCKED_MANDATORY_MISSING,Please fill out this field.,PASSED
+TC04,Missing Mandatory Gender,John,Doe,john@example.com,01712345678,,1995-01-01,INVALID_MANDATORY,BLOCKED_MANDATORY_MISSING,Please select an item in the list.,PASSED
+TC05,Email Missing @ Symbol,Alex,Doe,not-an-email,01712345678,Male,1995-01-01,INVALID_EMAIL,BLOCKED_INVALID_EMAIL,Please include an '@' in the email address. 'not-an-email' is missing an '@'.,PASSED
+TC06,Email Missing Domain,Alex,Doe,alex@,01712345678,Male,1995-01-01,INVALID_EMAIL,BLOCKED_INVALID_EMAIL,Please enter a part following '@'. 'alex@' is incomplete.,PASSED
+TC07,Email Missing Username,Alex,Doe,@example.com,01712345678,Male,1995-01-01,INVALID_EMAIL,BLOCKED_INVALID_EMAIL,Please enter a part followed by '@'. '@example.com' is incomplete.,PASSED
+TC08,Email Double @ Symbol,Alex,Doe,alex@@example.com,01712345678,Male,1995-01-01,INVALID_EMAIL,BLOCKED_INVALID_EMAIL,A part following '@' should not contain the symbol '@'.,PASSED
+TC09,Mobile Contain Alphabets,Alex,Doe,alex@example.com,abc12345678,Male,1995-01-01,INVALID_MOBILE,BLOCKED_INVALID_MOBILE,Please match the requested format.,PASSED
+TC10,Mobile Too Short (9 Digits),Alex,Doe,alex@example.com,123456789,Male,1995-01-01,INVALID_MOBILE,BLOCKED_INVALID_MOBILE,Please match the requested format.,PASSED
+TC11,Mobile Too Long (16 Digits),Alex,Doe,alex@example.com,1234567890123456,Male,1995-01-01,INVALID_MOBILE,BLOCKED_INVALID_MOBILE,Please match the requested format.,PASSED
+TC12,Mobile Lower Boundary (10 Digits),Alex,Doe,alex@example.com,1234567890,Male,1995-01-01,VALID,FORM_SUBMITTED_SUCCESSFULLY,All fields valid,PASSED
+TC13,Mobile Upper Boundary (15 Digits),Alex,Doe,alex@example.com,123456789012345,Male,1995-01-01,VALID,FORM_SUBMITTED_SUCCESSFULLY,All fields valid,PASSED
+TC14,Mobile Special Characters,Alex,Doe,alex@example.com,017123+4567,Male,1995-01-01,INVALID_MOBILE,BLOCKED_INVALID_MOBILE,Please match the requested format.,PASSED
+TC15,Valid Without Optional Last Name,Sarah,,sarah@example.com,01812345678,Female,1998-05-20,VALID,FORM_SUBMITTED_SUCCESSFULLY,All fields valid,PASSED
+TC16,Valid Without Optional DOB,Michael,Scott,mscott@example.com,01912345678,Male,,VALID,FORM_SUBMITTED_SUCCESSFULLY,All fields valid,PASSED
+TC17,Valid Minimum Required Only,Jim,,jim@example.com,,Male,,VALID,FORM_SUBMITTED_SUCCESSFULLY,All fields valid,PASSED
+TC18,Clean Valid Submission Male,Bob,Smith,bob.smith@example.com,98765432101,Male,1990-12-25,VALID,FORM_SUBMITTED_SUCCESSFULLY,All fields valid,PASSED
+TC19,Clean Valid Submission Female,Jane,Doe,jane.doe@example.com,01711112222,Female,2000-01-01,VALID,FORM_SUBMITTED_SUCCESSFULLY,All fields valid,PASSED
+TC20,Valid Complex Subdomain Email,Alice,Wonder,alice@mail.co.uk,01512345678,Female,1992-08-14,VALID,FORM_SUBMITTED_SUCCESSFULLY,All fields valid,PASSED
